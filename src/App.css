@@ -1,39 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --game-width: 1200px;
+  --game-height: 675px;
+  --card-width: 75px;
+  --card-height: 100px;
+  --player-width: 300px;
+  --player-height: 150px;
+}
+
 .App {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(39, 39, 39);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.gv {
+  background-color: gainsboro;
+  width: var(--game-width);
+  height: var(--game-height);
+  overflow: hidden;
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+.game {
+  /* position: relative; */
 }
 
-.App-header {
-  min-height: 100vh;
+.player-list{
+  /* position: relative; */
+}
+
+.player {
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: var(--player-width);
+  height: var(--player-height);
+  /* background-color: red; */
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+
+.card-list {
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100%;
+  width: var(--player-width); 
+  position: relative; 
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
+.card-list-user:hover .card {
+  transform-origin: center 600px; 
+
 }
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+.card {
+  width: var(--card-width);
+  height: var(--card-height);
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  flex-direction: column;
+  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.2); 
+  transform-origin: center 400px; 
+  transition: all .4s linear; 
+  padding: 5px;
+}
+
+
+.card-top {
+  align-self: flex-start;
+}
+.card-btm {
+  align-self: flex-end;
+  transform: rotate(-180deg);
+}
+
+.card-user:hover {
+  z-index: 1;
+  cursor: pointer;
 }
